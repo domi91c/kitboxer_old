@@ -1,1545 +1,653 @@
-<!DOCTYPE html>
-<html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for?(:title) ? yield(:title) : "Kitboxer" %></title>
-  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Kitboxer" %>">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <meta charset="utf-8"/>
+  <title>Rails Boiler Plate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!--[if lte IE 9]>
+  <link href="/pages/css/ie9.css?v=pages-v1.0.0" rel="stylesheet" type="text/css"/>
+  <![endif]-->
+
+  <script type="text/javascript">
+    window.onload = function() {
+      // fix for windows 8
+      if (navigator.appVersion.indexOf('Windows NT 6.2') != -1) {
+        document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="/pages/css/windows.chrome.fix.css?v=pages-v1.0.0" />';
+      }
+    };
+  </script>
+
   <%= csrf_meta_tags %>
+
+  <%= yield :head %>
 </head>
-<body class="animsition site-navbar-small ">
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
-            data-toggle="menubar">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="hamburger-bar"></span>
-    </button>
-    <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-collapse"
-            data-toggle="collapse">
-      <i class="icon wb-more-horizontal" aria-hidden="true"></i>
-    </button>
-    <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-      <span class="navbar-brand-text hidden-xs-down"> Remark</span>
+<body class="fixed-header">
+<!-- BEGIN SIDEBAR -->
+<!-- END SIDEBAR -->
+<!-- START PAGE-CONTAINER -->
+<div class="page-container" style="padding: 0">
+  <!-- START PAGE HEADER WRAPPER -->
+  <!-- START HEADER -->
+  <div class="header ">
+    <!-- START MOBILE CONTROLS -->
+    <!-- LEFT SIDE -->
+    <div class="pull-left full-height visible-sm visible-xs">
+      <!-- START ACTION BAR -->
+      <div class="sm-action-bar">
+        <a href="#" class="btn-link toggle-sidebar" data-toggle="sidebar">
+          <span class="icon-set menu-hambuger"></span>
+        </a>
+      </div>
+      <!-- END ACTION BAR -->
     </div>
-    <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
-            data-toggle="collapse">
-      <span class="sr-only">Toggle Search</span>
-      <i class="icon wb-search" aria-hidden="true"></i>
-    </button>
-  </div>
-  <div class="navbar-container container-fluid">
-    <!-- Navbar Collapse -->
-    <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
-      <!-- Navbar Toolbar -->
-      <ul class="nav navbar-toolbar">
-        <li class="nav-item hidden-float" id="toggleMenubar">
-          <a class="nav-link" data-toggle="menubar" href="#" role="button">
-            <i class="icon hamburger hamburger-arrow-left">
-              <span class="sr-only">Toggle menubar</span>
-              <span class="hamburger-bar"></span>
-            </i>
-          </a>
-        </li>
-        <li class="nav-item hidden-sm-down" id="toggleFullscreen">
-          <a class="nav-link icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
-            <span class="sr-only">Toggle fullscreen</span>
-          </a>
-        </li>
-        <li class="nav-item hidden-float">
-          <a class="nav-link icon wb-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
-             role="button">
-            <span class="sr-only">Toggle Search</span>
-          </a>
-        </li>
-        <li class="nav-item dropdown dropdown-fw dropdown-mega">
-          <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="fade"
-             role="button">Mega <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
-          <div class="dropdown-menu" role="menu">
-            <div class="mega-content">
-              <div class="row">
-                <div class="col-md-4">
-                  <h5>UI Kit</h5>
-                  <ul class="blocks-2">
-                    <li class="mega-menu m-0">
-                      <ul class="list-icons">
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../advanced/animation.html">Animation</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/buttons.html">Buttons</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/colors.html">Colors</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/dropdowns.html">Dropdowns</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/icons.html">Icons</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../advanced/lightbox.html">Lightbox</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="mega-menu m-0">
-                      <ul class="list-icons">
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/modals.html">Modals</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/panel-structure.html">Panels</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../structure/overlay.html">Overlay</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/tooltip-popover.html ">Tooltips</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../advanced/scrollable.html">Scrollable</a>
-                        </li>
-                        <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
-                          <a href="../uikit/typography.html">Typography</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-4">
-                  <h5>Media
-                    <span class="badge badge-pill badge-success">4</span>
-                  </h5>
-                  <ul class="blocks-3">
-                    <li>
-                      <a class="thumbnail m-0" href="javascript:void(0)">
-                        <img class="w-full" src="../../assets/photos/placeholder.png" alt="..." />
-                      </a>
-                    </li>
-                    <li>
-                      <a class="thumbnail m-0" href="javascript:void(0)">
-                        <img class="w-full" src="../../assets/photos/placeholder.png" alt="..." />
-                      </a>
-                    </li>
-                    <li>
-                      <a class="thumbnail m-0" href="javascript:void(0)">
-                        <img class="w-full" src="../../assets/photos/placeholder.png" alt="..." />
-                      </a>
-                    </li>
-                    <li>
-                      <a class="thumbnail m-0" href="javascript:void(0)">
-                        <img class="w-full" src="../../assets/photos/placeholder.png" alt="..." />
-                      </a>
-                    </li>
-                    <li>
-                      <a class="thumbnail m-0" href="javascript:void(0)">
-                        <img class="w-full" src="../../assets/photos/placeholder.png" alt="..." />
-                      </a>
-                    </li>
-                    <li>
-                      <a class="thumbnail m-0" href="javascript:void(0)">
-                        <img class="w-full" src="../../assets/photos/placeholder.png" alt="..." />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-4">
-                  <h5 class="mb-0">Accordion</h5>
-                  <!-- Accordion -->
-                  <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true"
-                       role="tablist">
-                    <div class="panel">
-                      <div class="panel-heading" id="siteMegaAccordionHeadingOne" role="tab">
-                        <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne" data-parent="#siteMegaAccordion"
-                           aria-expanded="false" aria-controls="siteMegaCollapseOne">
-                          Collapsible Group Item #1
-                        </a>
-                      </div>
-                      <div class="panel-collapse collapse" id="siteMegaCollapseOne" aria-labelledby="siteMegaAccordionHeadingOne"
-                           role="tabpanel">
-                        <div class="panel-body">
-                          De moveat laudatur vestra parum doloribus labitur sentire partes, eripuit praesenti
-                          congressus ostendit alienae, voluptati ornateque accusamus
-                          clamat reperietur convicia albucius.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel">
-                      <div class="panel-heading" id="siteMegaAccordionHeadingTwo" role="tab">
-                        <a class="panel-title collapsed" data-toggle="collapse" href="#siteMegaCollapseTwo"
-                           data-parent="#siteMegaAccordion" aria-expanded="false"
-                           aria-controls="siteMegaCollapseTwo">
-                          Collapsible Group Item #2
-                        </a>
-                      </div>
-                      <div class="panel-collapse collapse" id="siteMegaCollapseTwo" aria-labelledby="siteMegaAccordionHeadingTwo"
-                           role="tabpanel">
-                        <div class="panel-body">
-                          Praestabiliorem. Pellat excruciant legantur ullum leniter vacare foris voluptate
-                          loco ignavi, credo videretur multoque choro fatemur
-                          mortis animus adoptionem, bello statuat expediunt naturales.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel">
-                      <div class="panel-heading" id="siteMegaAccordionHeadingThree" role="tab">
-                        <a class="panel-title collapsed" data-toggle="collapse" href="#siteMegaCollapseThree"
-                           data-parent="#siteMegaAccordion" aria-expanded="false"
-                           aria-controls="siteMegaCollapseThree">
-                          Collapsible Group Item #3
-                        </a>
-                      </div>
-                      <div class="panel-collapse collapse" id="siteMegaCollapseThree" aria-labelledby="siteMegaAccordionHeadingThree"
-                           role="tabpanel">
-                        <div class="panel-body">
-                          Horum, antiquitate perciperet d conspectum locus obruamus animumque perspici probabis
-                          suscipere. Desiderat magnum, contenta poena desiderant
-                          concederetur menandri damna disputandum corporum.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Accordion -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <!-- End Navbar Toolbar -->
-      <!-- Navbar Toolbar Right -->
-      <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
-             aria-expanded="false" role="button">
-            <span class="flag-icon flag-icon-us"></span>
-          </a>
-          <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-              <span class="flag-icon flag-icon-gb"></span> English</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-              <span class="flag-icon flag-icon-fr"></span> French</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-              <span class="flag-icon flag-icon-cn"></span> Chinese</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-              <span class="flag-icon flag-icon-de"></span> German</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-              <span class="flag-icon flag-icon-nl"></span> Dutch</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
-             data-animation="scale-up" role="button">
-              <span class="avatar avatar-online">
-                <img src="../../assets/portraits/5.jpg" alt="...">
-                <i></i>
-              </span>
-          </a>
-          <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
-            <div class="dropdown-divider" role="presentation"></div>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
-             aria-expanded="false" data-animation="scale-up" role="button">
-            <i class="icon wb-bell" aria-hidden="true"></i>
-            <span class="badge badge-pill badge-danger up">5</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
-            <div class="dropdown-menu-header">
-              <h5>NOTIFICATIONS</h5>
-              <span class="badge badge-round badge-danger">New 5</span>
-            </div>
-            <div class="list-group">
-              <div data-role="container">
-                <div data-role="content">
-                  <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                        <i class="icon wb-order bg-red-600 white icon-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">A new order has been placed</h6>
-                        <time class="media-meta" datetime="2017-06-12T20:50:48+08:00">5 hours ago</time>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                        <i class="icon wb-user bg-green-600 white icon-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Completed the task</h6>
-                        <time class="media-meta" datetime="2017-06-11T18:29:20+08:00">2 days ago</time>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                        <i class="icon wb-settings bg-red-600 white icon-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Settings updated</h6>
-                        <time class="media-meta" datetime="2017-06-11T14:05:00+08:00">2 days ago</time>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                        <i class="icon wb-calendar bg-blue-600 white icon-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Event started</h6>
-                        <time class="media-meta" datetime="2017-06-10T13:50:18+08:00">3 days ago</time>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                        <i class="icon wb-chat bg-orange-600 white icon-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Message received</h6>
-                        <time class="media-meta" datetime="2017-06-10T12:34:48+08:00">3 days ago</time>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown-menu-footer">
-              <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
-                <i class="icon md-settings" aria-hidden="true"></i>
-              </a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                All notifications
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Messages"
-             aria-expanded="false" data-animation="scale-up" role="button">
-            <i class="icon wb-envelope" aria-hidden="true"></i>
-            <span class="badge badge-pill badge-info up">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
-            <div class="dropdown-menu-header" role="presentation">
-              <h5>MESSAGES</h5>
-              <span class="badge badge-round badge-info">New 3</span>
-            </div>
-            <div class="list-group" role="presentation">
-              <div data-role="container">
-                <div data-role="content">
-                  <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                          <span class="avatar avatar-sm avatar-online">
-                            <img src="../../assets/portraits/2.jpg" alt="..." />
-                            <i></i>
-                          </span>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Mary Adams</h6>
-                        <div class="media-meta">
-                          <time datetime="2017-06-17T20:22:05+08:00">30 minutes ago</time>
-                        </div>
-                        <div class="media-detail">Anyways, i would like just do it</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                          <span class="avatar avatar-sm avatar-off">
-                            <img src="../../assets/portraits/3.jpg" alt="..." />
-                            <i></i>
-                          </span>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Caleb Richards</h6>
-                        <div class="media-meta">
-                          <time datetime="2017-06-17T12:30:30+08:00">12 hours ago</time>
-                        </div>
-                        <div class="media-detail">I checheck the document. But there seems</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                          <span class="avatar avatar-sm avatar-busy">
-                            <img src="../../assets/portraits/4.jpg" alt="..." />
-                            <i></i>
-                          </span>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">June Lane</h6>
-                        <div class="media-meta">
-                          <time datetime="2017-06-16T18:38:40+08:00">2 days ago</time>
-                        </div>
-                        <div class="media-detail">Lorem ipsum Id consectetur et minim</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                    <div class="media">
-                      <div class="pr-10">
-                          <span class="avatar avatar-sm avatar-away">
-                            <img src="../../assets/portraits/5.jpg" alt="..." />
-                            <i></i>
-                          </span>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Edward Fletcher</h6>
-                        <div class="media-meta">
-                          <time datetime="2017-06-15T20:34:48+08:00">3 days ago</time>
-                        </div>
-                        <div class="media-detail">Dolor et irure cupidatat commodo nostrud nostrud.</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown-menu-footer" role="presentation">
-              <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
-                <i class="icon wb-settings" aria-hidden="true"></i>
-              </a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                See all messages
-              </a>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item" id="toggleChat">
-          <a class="nav-link" data-toggle="site-sidebar" href="javascript:void(0)" title="Chat"
-             data-url="../site-sidebar.tpl">
-            <i class="icon wb-chat" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-      <!-- End Navbar Toolbar Right -->
+    <!-- RIGHT SIDE -->
+    <div class="pull-right full-height visible-sm visible-xs">
+      <!-- START ACTION BAR -->
+      <div class="sm-action-bar">
+        <a href="#" class="btn-link" data-toggle="quickview" data-toggle-element="#quickview">
+          <span class="icon-set menu-hambuger-plus"></span>
+        </a>
+      </div>
+      <!-- END ACTION BAR -->
     </div>
-    <!-- End Navbar Collapse -->
-    <!-- Site Navbar Seach -->
-    <div class="collapse navbar-search-overlap" id="site-navbar-search">
-      <form role="search">
-        <div class="form-group">
-          <div class="input-search">
-            <i class="input-search-icon wb-search" aria-hidden="true"></i>
-            <input type="text" class="form-control" name="site-search" placeholder="Search...">
-            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
-                    data-toggle="collapse" aria-label="Close"></button>
-          </div>
+    <!-- END MOBILE CONTROLS -->
+    <div class=" pull-left sm-table">
+      <div class="header-inner">
+        <div class="brand inline">
+          <img src="<%= image_path('kitboxer_logo1.png') %>" alt="logo" data-src="<%= image_path('kitboxer_logo1.png') %>" data-src-retina="<%= image_path('kitboxer_logo1.png') %>" width="78" height="22">
         </div>
-      </form>
+        <!-- BEGIN NOTIFICATION DROPDOWN -->
+        <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
+          <li class="p-r-15 inline">
+            <div class="dropdown">
+              <a href="javascript:;" id="notification-center" class="icon-set globe-fill" data-toggle="dropdown">
+                <span class="bubble"></span>
+              </a>
+              <div class="dropdown-menu notification-toggle" role="menu" aria-labelledby="notification-center">
+                <div class="notification-panel">
+                  <!-- START Notification Body-->
+                  <div class="notification-body scrollable">
+                    <!-- START Notification Item-->
+                    <div class="notification-item  clearfix">
+                      <div class="heading">
+                        <a href="#" class="text-danger">
+                          <i class="fa fa-exclamation-triangle m-r-10"></i>
+                          <span class="bold">98% Server Load</span>
+                          <span class="fs-12 m-l-10">Take Action</span>
+                        </a>
+                        <span class="pull-right time">
+                                                        2 mins ago
+                                                    </span>
+                      </div>
+                      <div class="option">
+                        <a href="#" class="mark"></a>
+                      </div>
+                    </div>
+                    <!-- END Notification Item-->
+                  </div>
+                  <!-- END Notification Body-->
+                  <!-- START Notification Footer-->
+                  <div class="notification-footer text-center">
+                    <a href="#" class="">Read all notifications</a>
+                    <a data-toggle="refresh" class="portlet-refresh text-black pull-right" href="#">
+                      <i class="pg-refresh_new"></i>
+                    </a>
+                  </div>
+                  <!-- END Notification Footer-->
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="p-r-15 inline">
+            <a href="#" class="icon-set clip "></a>
+          </li>
+          <li class="p-r-15 inline">
+            <a href="#" class="icon-set grid-box"></a>
+          </li>
+        </ul>
+        <!-- END NOTIFICATION DROPDOWN -->
+        <a href="#" class="search-link" data-toggle="search"><i class="pg-search"></i>Type anywhere to
+          <span class="bold">search</span></a>
+      </div>
     </div>
-    <!-- End Site Navbar Seach -->
+    <div class=" pull-right">
+      <div class="header-inner">
+        <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
+      </div>
+    </div>
+    <div class=" pull-right">
+      <!-- START User Info-->
+      <div class="visible-lg visible-md m-t-10">
+        <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
+          <span class="semi-bold">David</span> <span class="text-master">Nest</span>
+        </div>
+        <div class="dropdown pull-right">
+          <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="thumbnail-wrapper d32 circular inline m-t-5">
+                <img src="<%= image_path('profiles/avatar.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>" width="32" height="32">
+            </span>
+          </button>
+          <ul class="dropdown-menu profile-dropdown" role="menu">
+            <li><a href="#"><i class="pg-settings_small"></i> Settings</a>
+            </li>
+            <li><a href="#"><i class="pg-outdent"></i> Feedback</a>
+            </li>
+            <li><a href="#"><i class="pg-signals"></i> Help</a>
+            </li>
+            <li class="bg-master-lighter">
+              <a href="#" class="clearfix">
+                <span class="pull-left">Logout</span>
+                <span class="pull-right"><i class="pg-power"></i></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END User Info-->
+    </div>
   </div>
-</nav>
-<div class="site-menubar">
-  <ul class="site-menu">
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-        <span class="site-menu-title">Dashboard</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../index.html">
-            <span class="site-menu-title">Dashboard v1</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../dashboard/v2.html">
-            <span class="site-menu-title">Dashboard v2</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../dashboard/ecommerce.html">
-            <span class="site-menu-title">Ecommerce</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../dashboard/analytics.html">
-            <span class="site-menu-title">Analytics</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../dashboard/team.html">
-            <span class="site-menu-title">Team</span>
-          </a>
-        </li>
-      </ul>
+  <!-- END HEADER -->
+  <!-- END PAGE HEADER WRAPPER -->
+  <!-- START PAGE CONTENT WRAPPER -->
+  <div class="page-content-wrapper">
+    <!-- START PAGE CONTENT -->
+    <div class="content">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+    <!-- END PAGE CONTENT -->
+    <!-- START FOOTER -->
+    <div class="container-fluid container-fixed-lg footer">
+      <div class="copyright sm-text-center">
+        <p class="small no-margin pull-left sm-pull-reset">
+          <span class="hint-text">Copyright © 2014</span>
+          <span class="font-montserrat">REVOX</span>.
+          <span class="hint-text">All rights reserved.</span>
+          <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a>
+                        </span>
+        </p>
+        <p class="small no-margin pull-right sm-pull-reset">
+          <a href="#">Hand-crafted</a>
+          <span class="hint-text">&amp; Made with Love ®</span>
+        </p>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+  </div>
+  <!-- END PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTAINER -->
+<!--START QUICKVIEW -->
+<div id="quickview" class="quickview-wrapper" data-pages="quickview">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="">
+      <a href="#quickview-notes" data-toggle="tab">Notes</a>
     </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
-        <span class="site-menu-title">Layouts</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/menu-collapsed.html">
-            <span class="site-menu-title">Menu Collapsed</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/menu-expended.html">
-            <span class="site-menu-title">Menu Expended</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/grids.html">
-            <span class="site-menu-title">Grid Scaffolding</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/layout-grid.html">
-            <span class="site-menu-title">Layout Grid</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/headers.html">
-            <span class="site-menu-title">Different Headers</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/panel-transition.html">
-            <span class="site-menu-title">Panel Transition</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/boxed.html">
-            <span class="site-menu-title">Boxed Layout</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/two-columns.html">
-            <span class="site-menu-title">Two Columns</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../layouts/bordered-header.html">
-            <span class="site-menu-title">Bordered Header</span>
-          </a>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Page Aside</span>
-            <div class="site-menu-label">
-              <span class="badge badge-danger badge-round mr-25">new</span>
-            </div>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../layouts/aside-left-static.html">
-                <span class="site-menu-title">Left Static</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../layouts/aside-right-static.html">
-                <span class="site-menu-title">Right Static</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../layouts/aside-left-fixed.html">
-                <span class="site-menu-title">Left Fixed</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../layouts/aside-right-fixed.html">
-                <span class="site-menu-title">Right Fixed</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <li>
+      <a href="#quickview-alerts" data-toggle="tab">Alerts</a>
     </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-file" aria-hidden="true"></i>
-        <span class="site-menu-title">Pages</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Errors</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/error-400.html">
-                <span class="site-menu-title">400</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/error-403.html">
-                <span class="site-menu-title">403</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/error-404.html">
-                <span class="site-menu-title">404</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/error-500.html">
-                <span class="site-menu-title">500</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/error-503.html">
-                <span class="site-menu-title">503</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/faq.html">
-            <span class="site-menu-title">FAQ</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/gallery.html">
-            <span class="site-menu-title">Gallery</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/gallery-grid.html">
-            <span class="site-menu-title">Gallery Grid</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/search-result.html">
-            <span class="site-menu-title">Search Result</span>
-          </a>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Maps</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/map-google.html">
-                <span class="site-menu-title">Google Maps</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/map-vector.html">
-                <span class="site-menu-title">Vector Maps</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/maintenance.html">
-            <span class="site-menu-title">Maintenance</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/forgot-password.html">
-            <span class="site-menu-title">Forgot Password</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/lockscreen.html">
-            <span class="site-menu-title">Lockscreen</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/login.html">
-            <span class="site-menu-title">Login</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/register.html">
-            <span class="site-menu-title">Register</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/login-v2.html">
-            <span class="site-menu-title">Login V2</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/register-v2.html">
-            <span class="site-menu-title">Register V2</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/login-v3.html">
-            <span class="site-menu-title">Login V3</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/register-v3.html">
-            <span class="site-menu-title">Register V3</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/user.html">
-            <span class="site-menu-title">User List</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/invoice.html">
-            <span class="site-menu-title">Invoice</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/blank.html">
-            <span class="site-menu-title">Blank Page</span>
-          </a>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Email</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/email-articles.html">
-                <span class="site-menu-title">Articles</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/email-welcome.html">
-                <span class="site-menu-title">Welcome</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/email-post.html">
-                <span class="site-menu-title">Post</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/email-thumbnail.html">
-                <span class="site-menu-title">Thumbnail</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../pages/email-news.html">
-                <span class="site-menu-title">News</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/code-editor.html">
-            <span class="site-menu-title">Code Editor</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/profile.html">
-            <span class="site-menu-title">Profile</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/profile-v2.html">
-            <span class="site-menu-title">Profile V2</span>
-            <div class="site-menu-label">
-              <span class="badge badge-info badge-round">new</span>
-            </div>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/profile-v3.html">
-            <span class="site-menu-title">Profile V3</span>
-            <div class="site-menu-label">
-              <span class="badge badge-info badge-round">new</span>
-            </div>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/site-map.html">
-            <span class="site-menu-title">Sitemap</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../pages/project.html">
-            <span class="site-menu-title">Project</span>
-            <div class="site-menu-label">
-              <span class="badge badge-info badge-round">new</span>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
-        <span class="site-menu-title">Basic UI</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Panel</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../uikit/panel-structure.html">
-                <span class="site-menu-title">Panel Structure</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../uikit/panel-actions.html">
-                <span class="site-menu-title">Panel Actions</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../uikit/panel-portlets.html">
-                <span class="site-menu-title">Panel Portlets</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/buttons.html">
-            <span class="site-menu-title">Buttons</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/cards.html">
-            <span class="site-menu-title">Cards</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/dropdowns.html">
-            <span class="site-menu-title">Dropdowns</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/icons.html">
-            <span class="site-menu-title">Icons</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/list.html">
-            <span class="site-menu-title">List</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/tooltip-popover.html">
-            <span class="site-menu-title">Tooltip &amp; Popover</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/modals.html">
-            <span class="site-menu-title">Modals</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/tabs-accordions.html">
-            <span class="site-menu-title">Tabs &amp; Accordions</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/images.html">
-            <span class="site-menu-title">Images</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/badges.html">
-            <span class="site-menu-title">Badges</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/progress-bars.html">
-            <span class="site-menu-title">Progress Bars</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/carousel.html">
-            <span class="site-menu-title">Carousel</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/typography.html">
-            <span class="site-menu-title">Typography</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/colors.html">
-            <span class="site-menu-title">Colors</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../uikit/utilities.html">
-            <span class="site-menu-title">Utilties</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
-        <span class="site-menu-title">Advanced UI</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item hidden-sm-down site-tour-trigger">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Tour</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/animation.html">
-            <span class="site-menu-title">Animation</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/highlight.html">
-            <span class="site-menu-title">Highlight</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/lightbox.html">
-            <span class="site-menu-title">Lightbox</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/scrollable.html">
-            <span class="site-menu-title">Scrollable</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/rating.html">
-            <span class="site-menu-title">Rating</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/context-menu.html">
-            <span class="site-menu-title">Context Menu</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/alertify.html">
-            <span class="site-menu-title">Alertify</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/masonry.html">
-            <span class="site-menu-title">Masonry</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/treeview.html">
-            <span class="site-menu-title">Treeview</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/toastr.html">
-            <span class="site-menu-title">Toastr</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/maps-vector.html">
-            <span class="site-menu-title">Vector Maps</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/maps-google.html">
-            <span class="site-menu-title">Google Maps</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/sortable-nestable.html">
-            <span class="site-menu-title">Sortable &amp; Nestable</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../advanced/bootbox-sweetalert.html">
-            <span class="site-menu-title">Bootbox &amp; Sweetalert</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
-        <span class="site-menu-title">Structure</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/alerts.html">
-            <span class="site-menu-title">Alerts</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/ribbon.html">
-            <span class="site-menu-title">Ribbon</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/pricing-tables.html">
-            <span class="site-menu-title">Pricing Tables</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/overlay.html">
-            <span class="site-menu-title">Overlay</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/cover.html">
-            <span class="site-menu-title">Cover</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/timeline-simple.html">
-            <span class="site-menu-title">Simple Timeline</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/timeline.html">
-            <span class="site-menu-title">Timeline</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/step.html">
-            <span class="site-menu-title">Step</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/comments.html">
-            <span class="site-menu-title">Comments</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/media.html">
-            <span class="site-menu-title">Media</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/chat.html">
-            <span class="site-menu-title">Chat</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/testimonials.html">
-            <span class="site-menu-title">Testimonials</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/nav.html">
-            <span class="site-menu-title">Nav</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/navbars.html">
-            <span class="site-menu-title">Navbars</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/blockquotes.html">
-            <span class="site-menu-title">Blockquotes</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/pagination.html">
-            <span class="site-menu-title">Pagination</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../structure/breadcrumbs.html">
-            <span class="site-menu-title">Breadcrumbs</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-extension" aria-hidden="true"></i>
-        <span class="site-menu-title">Widgets</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../widgets/statistics.html">
-            <span class="site-menu-title">Statistics Widgets</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../widgets/data.html">
-            <span class="site-menu-title">Data Widgets</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../widgets/blog.html">
-            <span class="site-menu-title">Blog Widgets</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../widgets/chart.html">
-            <span class="site-menu-title">Chart Widgets</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../widgets/social.html">
-            <span class="site-menu-title">Social Widgets</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../widgets/weather.html">
-            <span class="site-menu-title">Weather Widgets</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-library" aria-hidden="true"></i>
-        <span class="site-menu-title">Forms</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/general.html">
-            <span class="site-menu-title">General Elements</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/material.html">
-            <span class="site-menu-title">Material Elements</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/advanced.html">
-            <span class="site-menu-title">Advanced Elements</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/layouts.html">
-            <span class="site-menu-title">Form Layouts</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/wizard.html">
-            <span class="site-menu-title">Form Wizard</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/validation.html">
-            <span class="site-menu-title">Form Validation</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/masks.html">
-            <span class="site-menu-title">Form Masks</span>
-          </a>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Editors</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/editor-summernote.html">
-                <span class="site-menu-title">Summernote</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/editor-markdown.html">
-                <span class="site-menu-title">Markdown</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/editor-ace.html">
-                <span class="site-menu-title">Ace Editor</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/image-cropping.html">
-            <span class="site-menu-title">Image Cropping</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../forms/file-uploads.html">
-            <span class="site-menu-title">File Uploads</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-table" aria-hidden="true"></i>
-        <span class="site-menu-title">Tables</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/basic.html">
-            <span class="site-menu-title">Basic Tables</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/bootstrap.html">
-            <span class="site-menu-title">Bootstrap Tables</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/floatthead.html">
-            <span class="site-menu-title">floatThead</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/responsive.html">
-            <span class="site-menu-title">Responsive Tables</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/editable.html">
-            <span class="site-menu-title">Editable Tables</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/jsgrid.html">
-            <span class="site-menu-title">jsGrid</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/footable.html">
-            <span class="site-menu-title">FooTable</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/datatable.html">
-            <span class="site-menu-title">DataTables</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/jqtabledit.html">
-            <span class="site-menu-title">Jquery Tabledit</span>
-            <div class="site-menu-label">
-              <span class="badge badge badge-info badge-round">new</span>
-            </div>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../tables/table-dragger.html">
-            <span class="site-menu-title">Table Dragger</span>
-            <div class="site-menu-label">
-              <span class="badge badge badge-warning badge-round">new</span>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-pie-chart" aria-hidden="true"></i>
-        <span class="site-menu-title">Chart</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/chartjs.html">
-            <span class="site-menu-title">Chart.js</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/gauges.html">
-            <span class="site-menu-title">Gauges</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/flot.html">
-            <span class="site-menu-title">Flot</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/peity.html">
-            <span class="site-menu-title">Peity</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/sparkline.html">
-            <span class="site-menu-title">Sparkline</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/morris.html">
-            <span class="site-menu-title">Morris</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/chartist.html">
-            <span class="site-menu-title">Chartist.js</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/rickshaw.html">
-            <span class="site-menu-title">Rickshaw</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/pie-progress.html">
-            <span class="site-menu-title">Pie Progress</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../charts/c3.html">
-            <span class="site-menu-title">C3</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="site-menu-item has-sub">
-      <a href="javascript:void(0)">
-        <i class="site-menu-icon wb-grid-4" aria-hidden="true"></i>
-        <span class="site-menu-title">Apps</span>
-        <span class="site-menu-arrow"></span>
-      </a>
-      <ul class="site-menu-sub">
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/contacts/contacts.html">
-            <span class="site-menu-title">Contacts</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/calendar/calendar.html">
-            <span class="site-menu-title">Calendar</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/notebook/notebook.html">
-            <span class="site-menu-title">Notebook</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/taskboard/taskboard.html">
-            <span class="site-menu-title">Taskboard</span>
-          </a>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-            <span class="site-menu-title">Documents</span>
-            <span class="site-menu-arrow"></span>
-          </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/documents/articles.html">
-                <span class="site-menu-title">Articles</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/documents/categories.html">
-                <span class="site-menu-title">Categories</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/documents/article.html">
-                <span class="site-menu-title">Article</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/forum/forum.html">
-            <span class="site-menu-title">Forum</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/message/message.html">
-            <span class="site-menu-title">Message</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/projects/projects.html">
-            <span class="site-menu-title">Projects</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/mailbox/mailbox.html">
-            <span class="site-menu-title">Mailbox</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/media/overview.html">
-            <span class="site-menu-title">Media</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/work/work.html">
-            <span class="site-menu-title">Work</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/location/location.html">
-            <span class="site-menu-title">Location</span>
-          </a>
-        </li>
-        <li class="site-menu-item">
-          <a class="animsition-link" href="../apps/travel/travel.html">
-            <span class="site-menu-title">Travel</span>
-            <div class="site-menu-label">
-              <span class="badge badge-info badge-round">new</span>
-            </div>
-          </a>
-        </li>
-      </ul>
+    <li class="active">
+      <a href="#quickview-chat" data-toggle="tab">Chat</a>
     </li>
   </ul>
-</div>
-<div class="site-gridmenu">
-  <div>
-    <div>
-      <ul>
-        <li>
-          <a href="../apps/mailbox/mailbox.html">
-            <i class="icon wb-envelope"></i>
-            <span>Mailbox</span>
-          </a>
-        </li>
-        <li>
-          <a href="../apps/calendar/calendar.html">
-            <i class="icon wb-calendar"></i>
-            <span>Calendar</span>
-          </a>
-        </li>
-        <li>
-          <a href="../apps/contacts/contacts.html">
-            <i class="icon wb-user"></i>
-            <span>Contacts</span>
-          </a>
-        </li>
-        <li>
-          <a href="../apps/media/overview.html">
-            <i class="icon wb-camera"></i>
-            <span>Media</span>
-          </a>
-        </li>
-        <li>
-          <a href="../apps/documents/categories.html">
-            <i class="icon wb-order"></i>
-            <span>Documents</span>
-          </a>
-        </li>
-        <li>
-          <a href="../apps/projects/projects.html">
-            <i class="icon wb-image"></i>
-            <span>Project</span>
-          </a>
-        </li>
-        <li>
-          <a href="../apps/forum/forum.html">
-            <i class="icon wb-chat-group"></i>
-            <span>Forum</span>
-          </a>
-        </li>
-        <li>
-          <a href="../index.html">
-            <i class="icon wb-dashboard"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-      </ul>
+  <a class="btn-link quickview-toggle" data-toggle-element="#quickview" data-toggle="quickview"><i class="pg-close"></i></a>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- BEGIN Notes !-->
+    <div class="tab-pane fade  in no-padding" id="quickview-notes">
+      <div class="view-port clearfix quickview-notes" id="note-views">
+        <!-- BEGIN Note List !-->
+        <div class="view list" id="quick-note-list">
+          <div class="toolbar clearfix">
+            <ul class="pull-right ">
+              <li>
+                <a href="#" class="delete-note-link"><i class="fa fa-trash-o"></i></a>
+              </li>
+              <li>
+                <a href="#" class="new-note-link" data-navigate="view" data-view-port="#note-views" data-view-animation="push"><i class="fa fa-plus"></i></a>
+              </li>
+            </ul>
+            <button class="btn-remove-notes btn btn-xs btn-block" style="display:none"><i class="fa fa-times"></i>
+              Delete
+            </button>
+          </div>
+          <ul>
+            <!-- BEGIN Note Item !-->
+            <li data-noteid="1" data-navigate="view" data-view-port="#note-views" data-view-animation="push">
+              <div class="left">
+                <!-- BEGIN Note Action !-->
+                <div class="checkbox check-warning no-margin">
+                  <input id="qncheckbox1" type="checkbox" value="1">
+                  <label for="qncheckbox1"></label>
+                </div>
+                <!-- END Note Action !-->
+                <!-- BEGIN Note Preview Text !-->
+                <p class="note-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <!-- BEGIN Note Preview Text !-->
+              </div>
+              <!-- BEGIN Note Details !-->
+              <div class="right pull-right">
+                <!-- BEGIN Note Date !-->
+                <span class="date">12/12/14</span>
+                <a href="#"><i class="fa fa-chevron-right"></i></a>
+                <!-- END Note Date !-->
+              </div>
+              <!-- END Note Details !-->
+            </li>
+            <!-- END Note List !-->
+          </ul>
+        </div>
+        <!-- END Note List !-->
+        <div class="view note" id="quick-note">
+          <div>
+            <ul class="toolbar">
+              <li>
+                <a href="#" class="close-note-link" data-navigate="view" data-view-port="#note-views" data-view-animation="push"><i class="pg-arrow_left"></i></a>
+              </li>
+              <li><a href="#" class="Bold"><i class="fa fa-bold"></i></a>
+              </li>
+              <li><a href="#" class="Italic"><i class="fa fa-italic"></i></a>
+              </li>
+              <li><a href="#" class=""><i class="fa fa-link"></i></a>
+              </li>
+            </ul>
+            <div class="body">
+              <div>
+                <div class="top">
+                  <span>21st april 2014 2:13am</span>
+                </div>
+                <div class="content">
+                  <div class="quick-note-editor full-width full-height js-input" contenteditable="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<!-- Page -->
-<div class="page">
-  <div class="page-header">
-    <h1 class="page-title">AngularJs</h1>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-      <li class="active breadcrumb-item">AngularJs</li>
-    </ol>
-    <div class="page-header-actions">
-      <a class="btn btn-sm btn-default btn-outline btn-round" href="https://angularjs.org/"
-         target="_blank">
-        <i class="icon wb-link" aria-hidden="true"></i>
-        <span class="hidden-sm-down">Official Website</span>
-      </a>
+    <!-- END Notes !-->
+    <!-- BEGIN Alerts !-->
+    <div class="tab-pane fade no-padding" id="quickview-alerts">
+      <div class="view-port clearfix" id="alerts">
+        <!-- BEGIN Alerts View !-->
+        <div class="view bg-white">
+          <!-- BEGIN View Header !-->
+          <div class="navbar navbar-default navbar-sm">
+            <div class="navbar-inner">
+              <!-- BEGIN Header Controler !-->
+              <a href="javascript:;" class="inline action p-l-10 link text-master" data-navigate="view" data-view-port="#chat" data-view-animation="push-parrallax">
+                <i class="pg-more"></i>
+              </a>
+              <!-- END Header Controler !-->
+              <div class="view-heading">
+                Notications
+              </div>
+              <!-- BEGIN Header Controler !-->
+              <a href="#" class="inline action p-r-10 pull-right link text-master">
+                <i class="pg-search"></i>
+              </a>
+              <!-- END Header Controler !-->
+            </div>
+          </div>
+          <!-- END View Header !-->
+          <!-- BEGIN Alert List !-->
+          <div data-init-list-view="ioslist" class="list-view boreded no-top-border">
+            <!-- BEGIN List Group !-->
+            <div class="list-view-group-container">
+              <!-- BEGIN List Group Header!-->
+              <div class="list-view-group-header text-uppercase">
+                Calendar
+              </div>
+              <!-- END List Group Header!-->
+              <ul>
+                <!-- BEGIN List Group Item!-->
+                <li class="alert-list">
+                  <!-- BEGIN Alert Item Set Animation using data-view-animation !-->
+                  <a href="javascript:;" class="" data-navigate="view" data-view-port="#chat" data-view-animation="push-parrallax">
+                    <p class="col-xs-height col-middle">
+                      <span class="text-warning fs-10"><i class="fa fa-circle"></i></span>
+                    </p>
+                    <p class="p-l-10 col-xs-height col-middle col-xs-9 overflow-ellipsis fs-12">
+                      <span class="text-master">David Nester Birthday</span>
+                    </p>
+                    <p class="p-r-10 col-xs-height col-middle fs-12 text-right">
+                      <span class="text-warning">Today <br></span>
+                      <span class="text-master">All Day</span>
+                    </p>
+                  </a>
+                  <!-- END Alert Item!-->
+                  <!-- BEGIN List Group Item!-->
+                </li>
+                <!-- END List Group Item!-->
+              </ul>
+            </div>
+            <!-- END List Group !-->
+          </div>
+          <!-- END Alert List !-->
+        </div>
+        <!-- EEND Alerts View !-->
+      </div>
     </div>
-  </div>
-  <div class="page-content">
-    <div class="panel">
-      <div class="panel-body">
-        <h1>Coming Soon</h1>
-        <p>We will release a full angular version soon. Please look forward to it.
-        </p>
+    <!-- END Alerts !-->
+    <div class="tab-pane fade in active no-padding" id="quickview-chat">
+      <div class="view-port clearfix" id="chat">
+        <div class="view bg-white">
+          <!-- BEGIN View Header !-->
+          <div class="navbar navbar-default">
+            <div class="navbar-inner">
+              <!-- BEGIN Header Controler !-->
+              <a href="javascript:;" class="inline action p-l-10 link text-master" data-navigate="view" data-view-port="#chat" data-view-animation="push-parrallax">
+                <i class="pg-plus"></i>
+              </a>
+              <!-- END Header Controler !-->
+              <div class="view-heading">
+                Chat List
+                <div class="fs-11">Show All</div>
+              </div>
+              <!-- BEGIN Header Controler !-->
+              <a href="#" class="inline action p-r-10 pull-right link text-master">
+                <i class="pg-more"></i>
+              </a>
+              <!-- END Header Controler !-->
+            </div>
+          </div>
+          <!-- END View Header !-->
+          <div data-init-list-view="ioslist" class="list-view boreded no-top-border">
+            <div class="list-view-group-container">
+              <div class="list-view-group-header text-uppercase">
+                a
+              </div>
+              <ul>
+                <!-- BEGIN Chat User List Item  !-->
+                <li class="chat-user-list clearfix">
+                  <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
+                        <span class="col-xs-height col-middle">
+                        <span class="thumbnail-wrapper d32 circular bg-success">
+                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('profiles/1x.jpg') %>" data-src="<%= image_path('profiles/1.jpg') %>" src="<%= image_path('profiles/1.jpg') %>" class="col-top">
+                        </span>
+                        </span>
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span class="text-master">ava flores</span>
+                      <span class="block text-master hint-text fs-12">Hello there</span>
+                    </p>
+                  </a>
+                </li>
+                <!-- END Chat User List Item  !-->
+              </ul>
+            </div>
+            <div class="list-view-group-container">
+              <div class="list-view-group-header text-uppercase">b</div>
+              <ul>
+                <!-- BEGIN Chat User List Item  !-->
+                <li class="chat-user-list clearfix">
+                  <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
+                        <span class="col-xs-height col-middle">
+                        <span class="thumbnail-wrapper d32 circular bg-success">
+                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('profiles/2x.jpg') %>" data-src="<%= image_path('profiles/2.jpg') %>" src="<%= image_path('profiles/2.jpg') %>" class="col-top">
+                        </span>
+                        </span>
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span class="text-master">bella mccoy</span>
+                      <span class="block text-master hint-text fs-12">Hello there</span>
+                    </p>
+                  </a>
+                </li>
+                <!-- END Chat User List Item  !-->
+                <!-- BEGIN Chat User List Item  !-->
+                <li class="chat-user-list clearfix">
+                  <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
+                        <span class="col-xs-height col-middle">
+                        <span class="thumbnail-wrapper d32 circular bg-success">
+                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('profiles/3x.jpg') %>" data-src="<%= image_path('profiles/3.jpg') %>" src="<%= image_path('profiles/3.jpg') %>" class="col-top">
+                        </span>
+                        </span>
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span class="text-master">bob stephens</span>
+                      <span class="block text-master hint-text fs-12">Hello there</span>
+                    </p>
+                  </a>
+                </li>
+                <!-- END Chat User List Item  !-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- BEGIN Conversation View  !-->
+        <div class="view chat-view bg-white clearfix">
+          <!-- BEGIN Header  !-->
+          <div class="navbar navbar-default">
+            <div class="navbar-inner">
+              <a href="javascript:;" class="link text-master inline action p-l-10" data-navigate="view" data-view-port="#chat" data-view-animation="push-parrallax">
+                <i class="pg-arrow_left"></i>
+              </a>
+              <div class="view-heading">
+                John Smith
+                <div class="fs-11 hint-text">Online</div>
+              </div>
+              <a href="#" class="link text-master inline action p-r-10 pull-right ">
+                <i class="pg-more"></i>
+              </a>
+            </div>
+          </div>
+          <!-- END Header  !-->
+          <!-- BEGIN Conversation  !-->
+          <div class="chat-inner" id="my-conversation">
+            <!-- BEGIN From Me Message  !-->
+            <div class="message clearfix">
+              <div class="chat-bubble from-me">
+                Hello there
+              </div>
+            </div>
+            <!-- END From Me Message  !-->
+            <!-- BEGIN From Them Message  !-->
+            <div class="message clearfix">
+              <div class="profile-img-wrapper m-t-5 inline">
+                <img class="col-top" width="30" height="30" src="<%= image_path('profiles/avatar_small.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar_small.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>">
+              </div>
+              <div class="chat-bubble from-them">
+                Hey
+              </div>
+            </div>
+            <!-- END From Them Message  !-->
+            <!-- BEGIN From Me Message  !-->
+            <div class="message clearfix">
+              <div class="chat-bubble from-me">
+                Did you check out Pages framework ?
+              </div>
+            </div>
+            <!-- END From Me Message  !-->
+            <!-- BEGIN From Me Message  !-->
+            <div class="message clearfix">
+              <div class="chat-bubble from-me">
+                Its an awesome chat
+              </div>
+            </div>
+            <!-- END From Me Message  !-->
+            <!-- BEGIN From Them Message  !-->
+            <div class="message clearfix">
+              <div class="profile-img-wrapper m-t-5 inline">
+                <img class="col-top" width="30" height="30" src="<%= image_path('profiles/avatar_small.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar_small.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>">
+              </div>
+              <div class="chat-bubble from-them">
+                Yea
+              </div>
+            </div>
+            <!-- END From Them Message  !-->
+          </div>
+          <!-- BEGIN Conversation  !-->
+          <!-- BEGIN Chat Input  !-->
+          <div class="b-t b-grey bg-white clearfix p-l-10 p-r-10">
+            <div class="row">
+              <div class="col-xs-1 p-t-15">
+                <a href="#" class="link text-master"><i class="fa fa-plus-circle"></i></a>
+              </div>
+              <div class="col-xs-8 no-padding">
+                <input type="text" class="form-control chat-input" data-chat-input="" data-chat-conversation="#my-conversation" placeholder="Say something">
+              </div>
+              <div class="col-xs-2 link text-master m-l-10 m-t-15 p-l-10 b-l b-grey col-top">
+                <a href="#" class="link text-master"><i class="pg-camera"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- END Chat Input  !-->
+        </div>
+        <!-- END Conversation View  !-->
       </div>
     </div>
   </div>
 </div>
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="site-footer-legal">© 2017 <a href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></div>
-  <div class="site-footer-right">
-    Crafted with <i class="red-600 wb wb-heart"></i> by <a href="http://themeforest.net/user/amazingSurge">amazingSurge</a>
+<!-- END QUICKVIEW-->
+<!-- START OVERLAY -->
+<div class="overlay" style="display: none" data-pages="search">
+  <!-- BEGIN Overlay Content !-->
+  <div class="overlay-content has-results m-t-20">
+    <!-- BEGIN Overlay Header !-->
+    <div class="container-fluid">
+      <!-- BEGIN Overlay Logo !-->
+      <img class="overlay-brand" src="<%= image_path('kitboxer_logo1.png') %>" alt="logo" data-src="<%= image_path('kitboxer_logo1.png') %>" data-src-retina="<%= image_path('logo_2x.png') %>" width="78" height="22">
+      <!-- END Overlay Logo !-->
+      <!-- BEGIN Overlay Close !-->
+      <a href="#" class="close-icon-light overlay-close text-black fs-16">
+        <i class="pg-close"></i>
+      </a>
+      <!-- END Overlay Close !-->
+    </div>
+    <!-- END Overlay Header !-->
+    <div class="container-fluid">
+      <!-- BEGIN Overlay Controls !-->
+      <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+      <br>
+      <div class="inline-block">
+        <div class="checkbox right">
+          <input id="checkboxn" type="checkbox" value="1" checked="checked">
+          <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
+        </div>
+      </div>
+      <div class="inline-block m-l-10">
+        <p class="fs-13">Press enter to search</p>
+      </div>
+      <!-- END Overlay Controls !-->
+    </div>
+    <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
+    <div class="container-fluid">
+          <span>
+                <strong>suggestions :</strong>
+            </span>
+      <span id="overlay-suggestions"></span>
+      <br>
+      <div class="search-results m-t-40">
+        <p class="bold">Pages Search Results</p>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- BEGIN Search Result Item !-->
+            <div class="">
+              <!-- BEGIN Search Result Item Thumbnail !-->
+              <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                <div>
+                  <img width="50" height="50" src="<%= image_path('profiles/avatar.jpg') %>" data-src="<%= image_path('profiles/avatar.jpg') %>" data-src-retina="<%= image_path('profiles/avatar2x.jpg') %>" alt="">
+                </div>
+              </div>
+              <!-- END Search Result Item Thumbnail !-->
+              <div class="p-l-10 inline p-t-5">
+                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
+                <p class="hint-text">via john smith</p>
+              </div>
+            </div>
+            <!-- END Search Result Item !-->
+            <!-- BEGIN Search Result Item !-->
+            <div class="">
+              <!-- BEGIN Search Result Item Thumbnail !-->
+              <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                <div>T</div>
+              </div>
+              <!-- END Search Result Item Thumbnail !-->
+              <div class="p-l-10 inline p-t-5">
+                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
+                <p class="hint-text">via pages</p>
+              </div>
+            </div>
+            <!-- END Search Result Item !-->
+            <!-- BEGIN Search Result Item !-->
+            <div class="">
+              <!-- BEGIN Search Result Item Thumbnail !-->
+              <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                <div><i class="fa fa-headphones large-text "></i>
+                </div>
+              </div>
+              <!-- END Search Result Item Thumbnail !-->
+              <div class="p-l-10 inline p-t-5">
+                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
+                <p class="hint-text">via pagesmix</p>
+              </div>
+            </div>
+            <!-- END Search Result Item !-->
+          </div>
+          <div class="col-md-6">
+            <!-- BEGIN Search Result Item !-->
+            <div class="">
+              <!-- BEGIN Search Result Item Thumbnail !-->
+              <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
+                <div><i class="fa fa-facebook large-text "></i>
+                </div>
+              </div>
+              <!-- END Search Result Item Thumbnail !-->
+              <div class="p-l-10 inline p-t-5">
+                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
+                <p class="hint-text">via facebook</p>
+              </div>
+            </div>
+            <!-- END Search Result Item !-->
+            <!-- BEGIN Search Result Item !-->
+            <div class="">
+              <!-- BEGIN Search Result Item Thumbnail !-->
+              <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
+                <div><i class="fa fa-twitter large-text "></i>
+                </div>
+              </div>
+              <!-- END Search Result Item Thumbnail !-->
+              <div class="p-l-10 inline p-t-5">
+                <h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
+                <p class="hint-text">via twitter</p>
+              </div>
+            </div>
+            <!-- END Search Result Item !-->
+            <!-- BEGIN Search Result Item !-->
+            <div class="">
+              <!-- BEGIN Search Result Item Thumbnail !-->
+              <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
+                <div><i class="fa fa-google-plus large-text "></i>
+                </div>
+              </div>
+              <!-- END Search Result Item Thumbnail !-->
+              <div class="p-l-10 inline p-t-5">
+                <h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
+                <p class="hint-text">via google plus</p>
+              </div>
+            </div>
+            <!-- END Search Result Item !-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Overlay Search Results !-->
   </div>
-</footer>
-<!-- Core  -->
-<script src="../../assets/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-<script src="../../assets/vendor/jquery/jquery.js"></script>
-<script src="../../assets/vendor/tether/tether.js"></script>
-<script src="../../assets/vendor/bootstrap/bootstrap.js"></script>
-<script src="../../assets/vendor/animsition/animsition.js"></script>
-<script src="../../assets/vendor/mousewheel/jquery.mousewheel.js"></script>
-<script src="../../assets/vendor/asscrollbar/jquery-asScrollbar.js"></script>
-<script src="../../assets/vendor/asscrollable/jquery-asScrollable.js"></script>
-<!-- Plugins -->
-<script src="../../assets/vendor/jquery-mmenu/jquery.mmenu.min.all.js"></script>
-<script src="../../assets/vendor/switchery/switchery.min.js"></script>
-<script src="../../assets/vendor/intro-js/intro.js"></script>
-<script src="../../assets/vendor/screenfull/screenfull.js"></script>
-<script src="../../assets/vendor/slidepanel/jquery-slidePanel.js"></script>
-<!-- Scripts -->
-<script src="../../assets/js/State.js"></script>
-<script src="../../assets/js/Component.js"></script>
-<script src="../../assets/js/Plugin.js"></script>
-<script src="../../assets/js/Base.js"></script>
-<script src="../../assets/js/Config.js"></script>
-<script src="../../assets/js/Section/Menubar.js"></script>
-<script src="../../assets/js/Section/Sidebar.js"></script>
-<script src="../../assets/js/Section/PageAside.js"></script>
-<script src="../../assets/js/Section/GridMenu.js"></script>
-<!-- Config -->
-<script src="../../assets/js/config/colors.js"></script>
-<script src="../../assets/js/config/tour.js"></script>
-<script>
-  Config.set('assets', '../../assets');
-</script>
-<!-- Page -->
-<script src="../../assets/js/Site.js"></script>
-<script src="../../assets/js/Plugin/asscrollable.js"></script>
-<script src="../../assets/js/Plugin/slidepanel.js"></script>
-<script src="../../assets/js/Plugin/switchery.js"></script>
-<script>
-  (function(document, window, $) {
-    'use strict';
-    var Site = window.Site;
-    $(document).ready(function() {
-      Site.run();
-    });
-  })(document, window, jQuery);
-</script>
-</body>
+  <!-- END Overlay Content !-->
+</div>
+<!-- END OVERLAY -->
 
+<!-- JS at bottom of page to improve load time, and only loaded once with 'data-turbolinks-eval' == false  -->
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
+
+</body>
 </html>

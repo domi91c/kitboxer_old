@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module Kitboxer
   class Application < Rails::Application
+    config.assets.paths << File.join(Rails.root, "/vendor/pages")
 
     config.generators do |g|
       g.test_framework :rspec,

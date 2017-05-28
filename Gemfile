@@ -52,3 +52,8 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+
+# Gems for twitter LESS -> CSS and JS support
+gem 'execjs'
+gem 'therubyracer'
+gem 'less-rails', '~> 2.7.1'
