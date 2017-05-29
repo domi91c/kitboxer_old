@@ -43,6 +43,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'capybara'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
@@ -52,8 +53,3 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
-
-# Gems for twitter LESS -> CSS and JS support
-gem 'execjs'
-gem 'therubyracer'
-gem 'less-rails', '~> 2.7.1'
