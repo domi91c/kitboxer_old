@@ -16,12 +16,11 @@ group :development, :test do
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'meta_request'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
@@ -29,6 +28,7 @@ gem 'pg'
 gem 'pundit'
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rubocop'
 end
@@ -53,3 +54,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+
+gem 'carrierwave'
+
+gem 'jquery-rails'

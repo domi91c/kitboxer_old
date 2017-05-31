@@ -102,7 +102,7 @@ form legend {
     height: 35px;
     padding: 9px 12px;
     line-height: normal;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: normal;
     vertical-align: middle;
     min-height: 35px;
@@ -519,7 +519,7 @@ input[type=checkbox]:checked + label{
     margin-bottom: 10px;
     label:not(.error){
         font-family:'Montserrat';
-        font-size: 11px;
+        font-size: 13px;
         text-transform: uppercase;
         font-weight: 600;
     }
@@ -528,7 +528,7 @@ input[type=checkbox]:checked + label{
      
     }
     .help {
-        font-size: 12px;
+        font-size: 13px;
         color: rgba($color-master, .55);
     }
 }
@@ -538,10 +538,7 @@ input[type=checkbox]:checked + label{
     position: relative;
     border: 1px solid $form-control-border-color;
     border-radius: 2px;
-    padding-top: 7px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 4px;
+    padding: 7px 12px 4px;
     overflow: hidden;
     @include transition(background-color .2s ease);
     &.required:after {

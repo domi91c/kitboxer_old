@@ -28,7 +28,7 @@
 
   <%= yield :head %>
 </head>
-<body class="fixed-header">
+<body class="">
 <!-- START PAGE-CONTAINER -->
 <div class="page-container" style="padding: 0">
   <!-- START PAGE HEADER WRAPPER -->
@@ -59,7 +59,7 @@
     <div class=" pull-left sm-table">
       <div class="header-inner">
         <div class="brand inline">
-          <img src="<%= image_path('kitboxer_logo1.png') %>" alt="logo" data-src="<%= image_path('kitboxer_logo1.png') %>" data-src-retina="<%= image_path('kitboxer_logo1.png') %>" width="107" height="22">
+          <%= image_tag 'kitboxer_logo1.png', width: 107, height: 22%>
         </div>
         <!-- BEGIN NOTIFICATION DROPDOWN -->
         <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
@@ -124,7 +124,7 @@
         <div class="dropdown pull-right">
           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline" style="margin-top: 2px">
-                <img src="<%= image_path('profiles/avatar.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>" width="32" height="32">
+                  <%= image_tag 'profiles/avatar.jpg', width: 32, height: 32 %>
             </span>
           </button>
           <ul class="dropdown-menu profile-dropdown" role="menu">
@@ -154,7 +154,7 @@
   <div class="page-content-wrapper">
     <!-- START PAGE CONTENT -->
     <div class="content">
-      <div class="container">
+      <div class="container-fluid container-fixed-lg">
         <%= render 'layouts/messages' %>
         <%= yield %>
       </div>
@@ -169,7 +169,7 @@
 <!-- END PAGE CONTAINER -->
 
 <!-- JS at bottom of page to improve load time, and only loaded once with 'data-turbolinks-eval' == false  -->
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => true %>
 
 </body>
 </html>

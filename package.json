@@ -2,6 +2,8 @@
   "name": "Kitboxer",
   "private": true,
   "dependencies": {
-    "jquery": "^3.2.1"
+    "fine-uploader": "^5.14.4",
+    "jquery": "^3.2.1",
+    "vue": "^2.3.3"
   }
 }
