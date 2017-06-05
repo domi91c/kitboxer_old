@@ -397,7 +397,7 @@
                 }
             });
 
-            // remove classes & reset applied styles
+            // remove classes & resetFileInput applied styles
             $.each(s, function (d, scrollx) {
                 var scrollClass = 'scroll-scroll' + d + '_visible';
                 var scrolly = (d == "x") ? s.y : s.x;
@@ -569,7 +569,7 @@
                     });
                 } else {
                     containerWrapper.css({
-                        //"height": "auto", // do not reset height value: issue with height:100%!
+                        //"height": "auto", // do not resetFileInput height value: issue with height:100%!
                         "max-height": (AreaVisible + browser.scroll.height) + 'px'
                     });
                 }

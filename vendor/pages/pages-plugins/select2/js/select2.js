@@ -4804,7 +4804,7 @@ S2.define('select2/defaults',[
     return options;
   };
 
-  Defaults.prototype.reset = function () {
+  Defaults.prototype.resetFileInput = function () {
     function stripDiacritics (text) {
       // Used 'uni range + named function' from http://jsperf.com/diacritics/18
       function match(a) {

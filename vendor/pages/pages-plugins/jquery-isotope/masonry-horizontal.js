@@ -40,7 +40,7 @@ function masonryHorizontalDefinition( getSize, LayoutMode ) {
     this.rows = Math.floor( ( this.isotope.size.innerHeight + this.gutter ) / this.rowHeight );
     this.rows = Math.max( this.rows, 1 );
 
-    // reset row Xs
+    // resetFileInput row Xs
     var i = this.rows;
     this.rowXs = [];
     while (i--) {

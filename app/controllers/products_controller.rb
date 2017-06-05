@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :first_edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /products
   # GET /products.json
@@ -28,7 +29,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to edit_product_path(@product), notice: 'Product was successfully created.' }
+        format.html { redirect_to first_edit_product_path(@product), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -56,6 +57,9 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def first_edit
   end
 
   # DELETE /products/1

@@ -600,7 +600,7 @@
         Filepicker.prototype._replaceInput = function (input) {
             var inputClone = input.clone(true);
 
-            $('<form/>').append(inputClone)[0].reset();
+            $('<form/>').append(inputClone)[0].resetFileInput();
 
             input.after(inputClone).detach();
 

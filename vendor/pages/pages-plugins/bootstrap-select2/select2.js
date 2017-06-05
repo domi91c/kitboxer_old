@@ -496,7 +496,7 @@ the specific language governing permissions and limitations under the Apache Lic
             text = dataItem.text;
             // if text is not a function we assume it to be a key name
             if (!$.isFunction(text)) {
-                dataText = dataItem.text; // we need to store this in a separate variable because in the next step data gets reset and data.text is no longer available
+                dataText = dataItem.text; // we need to store this in a separate variable because in the next step data gets resetFileInput and data.text is no longer available
                 text = function (item) { return item[dataText]; };
             }
         }

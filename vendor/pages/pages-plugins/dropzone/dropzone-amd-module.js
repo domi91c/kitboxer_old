@@ -329,7 +329,7 @@ Emitter.prototype.hasListeners = function(event){
           return this.element.classList.add("dz-started");
         }
       },
-      reset: function() {
+      resetFileInput: function() {
         return this.element.classList.remove("dz-started");
       },
       addedfile: function(file) {

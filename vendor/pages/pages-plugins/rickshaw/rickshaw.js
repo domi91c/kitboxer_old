@@ -4020,7 +4020,7 @@ Rickshaw.Series.FixedDuration = Rickshaw.Class.create(Rickshaw.Series, {
 			this.currentIndex += 1;
 		}
 
-		// reset timeBase for zero-filled values if needed
+		// resetFileInput timeBase for zero-filled values if needed
 		this.timeBase -= (this.maxDataPoints - this.currentSize) * this.timeInterval;
 
 		// zero-fill up to maxDataPoints size if we don't have that much data yet

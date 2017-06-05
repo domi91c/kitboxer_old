@@ -25,8 +25,8 @@
  *= require pages-plugins/filepicker/cropper.min
  *= require pages-plugins/filepicker/fileicons
  *= require pages-plugins/filepicker/filepicker
-//= require pages-plugins/fileuploader/jquery.fileuploader
-//= require pages-plugins/fileuploader/examples/thumbnails/css/jquery.fileuploader-theme-thumbnails
+ *= require pages-plugins/fileuploader/jquery.fileuploader
+*= require pages-plugins/fileuploader/examples/thumbnails/css/jquery.fileuploader-theme-thumbnails
 
  * BEGIN CORE TEMPLATE CSS FOR PAGES
  *= require pages-core/css/pages-icons
@@ -38,6 +38,8 @@
  *
  * I prefer to list stylesheets in a specific order, so I comment out require_tree .
  **** require_tree .
+
+ *= require jquery.fileupload
  */
 
 .header .brand {
@@ -45,5 +47,6 @@
     margin-bottom: 7px;
 }
 
-
-[v-cloak] { display: none }
+[v-cloak] {
+    display: none
+}

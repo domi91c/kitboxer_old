@@ -2158,7 +2158,7 @@
 	 * Redraw the table - taking account of the various features which are enabled
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {boolean} [holdPosition] Keep the current paging position. By default
-	 *    the paging is reset to the first page
+	 *    the paging is resetFileInput to the first page
 	 *  @memberof DataTable#oApi
 	 */
 	function _fnReDraw( settings, holdPosition )
@@ -7324,7 +7324,7 @@
 	 * Set the current page.
 	 *
 	 * Note that if you attempt to show a page which does not exist, DataTables will
-	 * not throw an error, but rather reset the paging.
+	 * not throw an error, but rather resetFileInput the paging.
 	 *
 	 * @param {integer|string} action The paging action to take. This can be one of:
 	 *  * `integer` - The page index to jump to
@@ -7493,9 +7493,9 @@
 	 * Reload tables from the Ajax data source. Note that this function will
 	 * automatically re-draw the table when the remote data has been loaded.
 	 *
-	 * @param {boolean} [reset=true] Reset (default) or hold the current paging
+	 * @param {boolean} [resetFileInput=true] Reset (default) or hold the current paging
 	 *   position. A full re-sort and re-filter is performed when this method is
-	 *   called, which is why the pagination reset is the default action.
+	 *   called, which is why the pagination resetFileInput is the default action.
 	 * @returns {DataTables.Api} this
 	 */
 	_api_register( 'ajax.reload()', function ( callback, resetPaging ) {

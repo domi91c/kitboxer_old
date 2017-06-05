@@ -519,7 +519,7 @@ ColReorder.prototype = {
 	 *        "sDom": 'Rlfrtip'
 	 *    } );
 	 *
-	 *    // Add click event to a button to reset the ordering
+	 *    // Add click event to a button to resetFileInput the ordering
 	 *    $('#resetOrdering').click( function (e) {
 	 *        e.preventDefault();
 	 *        $.fn.dataTable.ColReorder( table ).fnReset();
@@ -1332,7 +1332,7 @@ else {
 
 // API augmentation
 if ( $.fn.dataTable.Api ) {
-	$.fn.dataTable.Api.register( 'colReorder.reset()', function () {
+	$.fn.dataTable.Api.register( 'colReorder.resetFileInput()', function () {
 		return this.iterator( 'table', function ( ctx ) {
 			ctx._colReorder.fnReset();
 		} );

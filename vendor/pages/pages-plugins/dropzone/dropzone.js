@@ -527,7 +527,7 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
           return this.element.classList.add("dz-started");
         }
       },
-      reset: function() {
+      resetFileInput: function() {
         return this.element.classList.remove("dz-started");
       },
       addedfile: function(file) {

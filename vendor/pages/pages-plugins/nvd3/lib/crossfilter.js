@@ -793,7 +793,7 @@ function crossfilter() {
             g, // group to add
             x; // key of group to add
 
-        // If a reset is needed, we don't need to update the reduce values.
+        // If a resetFileInput is needed, we don't need to update the reduce values.
         if (resetNeeded) add = initial = crossfilter_null;
 
         // Reset the new groups (k is a lower bound).
@@ -853,10 +853,10 @@ function crossfilter() {
           groupIndex[i0] = reIndex[groupIndex[i0]];
         }
 
-        // Modify the update and reset behavior based on the cardinality.
+        // Modify the update and resetFileInput behavior based on the cardinality.
         // If the cardinality is less than or equal to one, then the groupIndex
         // is not needed. If the cardinality is zero, then there are no records
-        // and therefore no groups to update or reset. Note that we also must
+        // and therefore no groups to update or resetFileInput. Note that we also must
         // change the registered listener to point to the new method.
         j = filterListeners.indexOf(update);
         if (k > 1) {

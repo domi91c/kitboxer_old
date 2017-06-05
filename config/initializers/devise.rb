@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
-  # confirmation, reset password and unlock tokens in the database.
+  # confirmation, resetFileInput password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'c8d6e987f4923ad78a1795dce276f3a91511e8bb0813ba63f3d6901efc3030efd4b2483769284f83a6c17a504c0e14e43100bc3f7ff7483c9865326f8af836d7'
@@ -248,13 +248,13 @@ Devise.setup do |config|
   # Defines which key will be used when recovering the password for an account
   # config.reset_password_keys = [:email]
 
-  # Time interval you can reset your password with a reset password key.
+  # Time interval you can resetFileInput your password with a resetFileInput password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
 
   # When set to false, does not sign a user in automatically after their password is
-  # reset. Defaults to true, so a user is signed in automatically after a reset.
+  # resetFileInput. Defaults to true, so a user is signed in automatically after a resetFileInput.
   # config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable

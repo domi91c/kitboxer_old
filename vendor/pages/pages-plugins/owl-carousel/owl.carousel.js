@@ -1052,7 +1052,7 @@
 	 * @public
 	 * @param {Number} position - The absolute position of the new item.
 	 */
-	Owl.prototype.reset = function(position) {
+	Owl.prototype.resetFileInput = function(position) {
 		position = this.normalize(position);
 
 		if (position === undefined) {

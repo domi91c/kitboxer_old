@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 20170530053953) do
     t.integer "product_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"

@@ -620,12 +620,12 @@ var Event = Hammer.event = {
         }
       }
 
-      // on the end we reset everything
+      // on the end we resetFileInput everything
       if(!count_touches) {
         last_move_event = null;
         enable_detect = false;
         touch_triggered = false;
-        PointerEvent.reset();
+        PointerEvent.resetFileInput();
       }
     };
 
@@ -818,9 +818,9 @@ var PointerEvent = Hammer.PointerEvent = {
   },
 
   /**
-   * reset the list
+   * resetFileInput the list
    */
-  reset: function() {
+  resetFileInput: function() {
     this.pointers = {};
   }
 };
@@ -918,7 +918,7 @@ var Detection = Hammer.detection = {
     // used for the double tap gesture, since this is an other gesture detect session
     this.previous = Utils.extend({}, this.current);
 
-    // reset the current
+    // resetFileInput the current
     this.current = null;
 
     // stopped!
@@ -1293,7 +1293,7 @@ Hammer.gestures.Tap = {
   handler : function tapGesture(ev, inst) {
     var prev, since_prev, did_doubletap;
 
-    // reset moved state
+    // resetFileInput moved state
     if(ev.eventType == EVENT_START) {
       this.has_moved = false;
     }

@@ -39,7 +39,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.15.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v9.0.6, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="callsite (v0.0.11, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v2.14.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
@@ -54,8 +53,10 @@
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.3.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise_invitable (v1.7.2, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="em-websocket (v0.5.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.6.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.2.3, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_girl (v4.8.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_girl_rails (v4.8.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
@@ -67,9 +68,11 @@
     <orderEntry type="library" scope="PROVIDED" name="guard (v2.14.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-bundler (v2.1.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-compat (v1.2.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="guard-livereload (v2.5.2, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rails (v0.8.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rspec (v4.7.3, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="high_voltage (v3.0.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http_parser.rb (v0.6.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hub (v1.12.4, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.8.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="interception (v0.5, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
@@ -77,6 +80,7 @@
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.3.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.4.3, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.1.5, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="lograge (v0.5.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.3, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.0.12, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.5, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
@@ -145,6 +149,7 @@
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v1.2.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.7, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.5.1, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="webpacker (v2.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.6.5, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.2, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v2.1.0, RVM: ruby-2.4.0 [kitboxer]) [gem]" level="application" />

@@ -1519,7 +1519,7 @@
           foreground: 'Foreground Color',
           transparent: 'Transparent',
           setTransparent: 'Set transparent',
-          reset: 'Reset',
+          resetFileInput: 'Reset',
           resetToDefault: 'Reset to default'
         },
         shortcut: {
@@ -4527,7 +4527,7 @@
                          '<li>' +
                            '<div class="btn-group">' +
                              '<div class="note-palette-title">' + lang.color.background + '</div>' +
-                             '<div class="note-color-reset" data-event="backColor"' +
+                             '<div class="note-color-resetFileInput" data-event="backColor"' +
                                ' data-value="inherit" title="' + lang.color.transparent + '">' +
                                lang.color.setTransparent +
                              '</div>' +
@@ -4535,7 +4535,7 @@
                            '</div>' +
                            '<div class="btn-group">' +
                              '<div class="note-palette-title">' + lang.color.foreground + '</div>' +
-                             '<div class="note-color-reset" data-event="foreColor" data-value="inherit" title="' + lang.color.reset + '">' +
+                             '<div class="note-color-resetFileInput" data-event="foreColor" data-value="inherit" title="' + lang.color.resetFileInput + '">' +
                                lang.color.resetToDefault +
                              '</div>' +
                              '<div class="note-color-palette" data-target-event="foreColor"></div>' +

@@ -16,7 +16,7 @@ $(document).ready(function() {
 				if(input.length)
 					item.upload.data.custom_name = input.val();
 				
-				// reset input value
+				// resetFileInput input value
 				input.val("");
 			},
             onSuccess: function(result, item) {

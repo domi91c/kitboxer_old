@@ -1697,7 +1697,7 @@
             this.init(true);
         },
 
-        reset: function () {
+        resetFileInput: function () {
             this.updateResult();
             this.update();
         },

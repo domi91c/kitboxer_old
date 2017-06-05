@@ -164,7 +164,7 @@
             return this.serialize();
         },
 
-        reset: function()
+        resetFileInput: function()
         {
             this.mouse = {
                 offsetX   : 0,
@@ -356,7 +356,7 @@
              * move horizontal
              */
             if (mouse.dirAx && mouse.distAxX >= opt.threshold) {
-                // reset move distance on x-axis for new phase
+                // resetFileInput move distance on x-axis for new phase
                 mouse.distAxX = 0;
                 prev = this.placeEl.prev(opt.itemNodeName);
                 // increase horizontal level if previous sibling exists and is not collapsed

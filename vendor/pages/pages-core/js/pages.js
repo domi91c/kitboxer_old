@@ -831,7 +831,7 @@
             // http://stackoverflow.com/questions/12088819/css-transitions-on-new-elements
             var x = this.selEl.clientHeight;
 
-            // reset backdrop
+            // resetFileInput backdrop
             backdrop.style.transform = backdrop.style.webkitTransform = backdrop.style.MozTransform = backdrop.style.msTransform = backdrop.style.OTransform = 'scale3d(1,1,1)';
             classie.remove(this.selEl, 'cs-active');
 

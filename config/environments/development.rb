@@ -78,5 +78,5 @@ Rails.application.configure do
       authentication: 'plain',
       enable_starttls_auto: true
   }
-
+  config.lograge.enabled = true
 end

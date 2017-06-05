@@ -2230,7 +2230,7 @@ $.fn.metrojs.TileTimer = function (interval, callback, repeatCount) {
     this.tick = function (when) {
         this.action(this.count + 1);
         this.count++;
-        // reset the loop count
+        // resetFileInput the loop count
         if (this.count >= MAX_LOOP_COUNT)
             this.count = 0;
         if (this.repeatCount > 0 || this.repeatCount == -1) {
@@ -2240,7 +2240,7 @@ $.fn.metrojs.TileTimer = function (interval, callback, repeatCount) {
                 this.stop();
         }
     }
-    // clear the timer and reset the count
+    // clear the timer and resetFileInput the count
     this.stop = function () {
         this.timerId = window.clearTimeout(this.timerId);
         this.reset();
@@ -2259,12 +2259,12 @@ $.fn.metrojs.TileTimer = function (interval, callback, repeatCount) {
         this.timerId = window.clearTimeout(this.timerId);
     };
 
-    // reset count
+    // resetFileInput count
     this.reset = function () {
         this.count = 0;
     };
 
-    // reset count and timer
+    // resetFileInput count and timer
     this.restart = function (delay) {
         this.stop();
         this.start(delay);

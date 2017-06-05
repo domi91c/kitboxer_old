@@ -85,8 +85,12 @@ GEM
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.3)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubi (1.6.0)
     erubis (2.7.0)
+    eventmachine (1.2.3)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -115,6 +119,11 @@ GEM
       guard (~> 2.2)
       guard-compat (~> 1.1)
     guard-compat (1.2.1)
+    guard-livereload (2.5.2)
+      em-websocket (~> 0.5)
+      guard (~> 2.8)
+      guard-compat (~> 1.0)
+      multi_json (~> 1.8)
     guard-rails (0.8.0)
       guard (~> 2.11)
       guard-compat (~> 1.0)
@@ -123,6 +132,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     high_voltage (3.0.0)
+    http_parser.rb (0.6.0)
     hub (1.12.4)
     i18n (0.8.1)
     interception (0.5)
@@ -139,6 +149,10 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    lograge (0.5.1)
+      actionpack (>= 4, < 5.2)
+      activesupport (>= 4, < 5.2)
+      railties (>= 4, < 5.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
@@ -295,6 +309,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (2.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -318,6 +336,7 @@ DEPENDENCIES
   faker
   foreman
   guard-bundler
+  guard-livereload
   guard-rails
   guard-rspec
   high_voltage
@@ -326,6 +345,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   listen (>= 3.0.5, < 3.2)
+  lograge
   meta_request
   pg
   pry-byebug
@@ -347,6 +367,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker
 
 RUBY VERSION
    ruby 2.4.0p0

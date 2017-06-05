@@ -529,10 +529,10 @@ $.extend( $.validator, {
 			var validator = this,
 				rulesCache = {};
 
-			// select all valid inputs inside the form (no submit or reset buttons)
+			// select all valid inputs inside the form (no submit or resetFileInput buttons)
 			return $( this.currentForm )
 			.find( "input, select, textarea" )
-			.not( ":submit, :reset, :image, [disabled]" )
+			.not( ":submit, :resetFileInput, :image, [disabled]" )
 			.not( this.settings.ignore )
 			.filter( function() {
 				if ( !this.name && validator.settings.debug && window.console ) {
@@ -558,7 +558,7 @@ $.extend( $.validator, {
 			return $( this.settings.errorElement + "." + errorClass, this.errorContext );
 		},
 
-		reset: function() {
+		resetFileInput: function() {
 			this.successList = [];
 			this.errorList = [];
 			this.errorMap = {};
