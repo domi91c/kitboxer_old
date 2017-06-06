@@ -34,8 +34,6 @@ class ImagesController < ApplicationController
       if @image.save
         format.html {redirect_to @image, notice: 'Image was successfully created.'}
         format.json {render json: { files: [@image.to_jq_upload] }, status: :created, location: @image}
-
-
       else
         format.html {render :new}
         format.json {render json: @image.errors, status: :unprocessable_entity}
@@ -46,14 +44,15 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-    respond_to do |format|
-      if @image.update(image_params)
-        format.html {redirect_to @image, notice: 'Image was successfully updated.'}
-        format.json {render :show, status: :ok, location: @image}
-      else
-        format.html {render :edit}
-        format.json {render json: @image.errors, status: :unprocessable_entity}
-      end
+    # if @image.update(x: params[:crop_data][:x],
+    #                  y: params[:crop_data][:y],
+    #                  width: params[:crop_data][:width],
+    #                  height: params[:crop_data][:height])
+
+    if @image.update(image: @image.cropped_image(params[:crop_data]))
+      render json: @image.image_data, status: :ok, location: @image
+    else
+      render json: @image.errors, status: :unprocessable_entity
     end
   end
 
@@ -82,7 +81,7 @@ class ImagesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def image_params
-    params.require(:images).permit()
+    params.require(:image).permit(:crop_data)
   end
 
 end

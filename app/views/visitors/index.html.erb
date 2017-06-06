@@ -83,7 +83,7 @@
             data: 'Unknown error occurred: [' + request.responseText + ']',
           };
         }
-        var imageData = resp.images;
+        var imageData = imageData.images;
         for (var i = 0; i < imageData.length; i++) {
           var image = imageData[i];
           renderImage(image);

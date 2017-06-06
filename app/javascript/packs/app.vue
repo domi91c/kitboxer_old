@@ -7,7 +7,7 @@
 
         <button @click="save">Upload Files</button>
         <ul v-for="image in uploadedFiles.images">
-            <image-container :image="image" @delete-image="deleteImage" @crop-image="cropImage"></image-container>
+            <image-container :image="image" @delete-image="deleteImage" @finish-crop="finishCrop"></image-container>
         </ul>
     </div>
 
@@ -15,7 +15,7 @@
 
 <script>
   import ImageContainer from './components/ImageContainer.erb.vue';
-  import {load, upload, remove} from './upload';
+  import {load, upload, update, remove} from './upload';
 
   const node = document.getElementById('hello-vue');
   //  const data = JSON.parse(node.getAttribute('data'));
@@ -72,12 +72,26 @@
         remove(image.id);
         this.uploadedFiles.images.splice(index, 1)
       },
-      cropImage() {
-        console.log("crop this shit, nigga");
+      finishCrop(image, cropData) {
+        update(image, cropData).then(imageData => {
+          imageData = JSON.parse(imageData);
+          console.log("UPDATE SUCCESSFUL");
+          console.log(imageData);
+          this.currentStatus = STATUS_SUCCESS;
+          console.log(this.currentStatus);
+          let index = this.uploadedFiles.images.indexOf(imageData);
+          this.uploadedFiles.images.splice(index, 1, imageData);
+        }).catch(err => {
+          this.uploadError = err.response;
+          console.log(this.uploadError);
+          this.currentStatus = STATUS_FAILED;
+          console.log(this.currentStatus);
+        });
+
       }
     },
     created() {
-      load(this.formData).then(x => {
+      load().then(x => {
         x = JSON.parse(x);
         this.uploadedFiles = x;
         this.currentStatus = STATUS_SUCCESS;
@@ -89,6 +103,7 @@
   };
 
 </script>
+
 
 <style scoped>
     p {

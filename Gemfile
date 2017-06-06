@@ -62,3 +62,5 @@ gem 'jquery-rails'
 gem 'webpacker'
 gem "lograge"
 
+gem "image_magick"
+gem "mini_magick"
