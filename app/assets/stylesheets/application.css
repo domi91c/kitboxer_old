@@ -22,7 +22,7 @@
 *= require fine-uploader/fine-uploader/fine-uploader
 *= require fine-uploader/fine-uploader/fine-uploader-gallery
 
- *= require pages-plugins/filepicker/cropper.min
+ *= require pages-plugins/filepicker/cropper
  *= require pages-plugins/filepicker/fileicons
  *= require pages-plugins/filepicker/filepicker
  *= require pages-plugins/fileuploader/jquery.fileuploader

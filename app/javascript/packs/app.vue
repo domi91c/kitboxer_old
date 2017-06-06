@@ -1,16 +1,18 @@
 <template>
     <div id='filepicker'>
+
         <h1>{{uploadError}}</h1>
+
         <input type="file" multiple :name="uploadFieldName"
                @change="filesChange($event)"
                accept="image/*" ref="fileField">
 
         <button @click="save">Upload Files</button>
+
         <ul v-for="image in uploadedFiles.images">
             <image-container :image="image" @delete-image="deleteImage" @finish-crop="finishCrop"></image-container>
         </ul>
     </div>
-
 </template>
 
 <script>
@@ -25,7 +27,7 @@
   export default {
     el: 'filepicker',
     components: {
-      ImageContainer
+      ImageContainer,
     },
     props: {
       pass: String,
@@ -39,12 +41,16 @@
       formData: new FormData(),
     },
     methods: {
+      test() {
+        console.log("BTN WORKIN")
+      },
       save() {
         if (!this.files.length) {
           return;
         }
         upload(this.formData).then(x => {
           x = JSON.parse(x);
+          console.log('')
           this.uploadedFiles = x;
           this.currentStatus = STATUS_SUCCESS;
         }).catch(err => {
@@ -74,22 +80,15 @@
       },
       finishCrop(image, cropData) {
         update(image, cropData).then(x => {
-          console.dir('before parse: ' + x);
           console.log(x.url);
           var imageData = JSON.parse(x);
-          console.dir('after parse: ' + imageData);
-          console.log('files; ' + this.uploadedFiles);
-          console.log("UPDATE SUCCESSFUL");
           this.currentStatus = STATUS_SUCCESS;
           let index = this.uploadedFiles.images.indexOf(image);
           this.uploadedFiles.images.splice(index, 1, imageData)
-//          this.uploadedFiles.images.$set(index, imageData)
-//          Vue.set(this.uploadedFiles.images, index, imageData);
         }).catch(err => {
           this.uploadError = err.response;
           console.log(this.uploadError);
           this.currentStatus = STATUS_FAILED;
-          console.log('Current Status: ' + this.currentStatus);
         });
 
       }

@@ -6,9 +6,10 @@
 
 import Vue from 'vue';
 import App from './app.vue';
-
+import BootstrapVue from 'bootstrap-vue';
 document.addEventListener('DOMContentLoaded', () => {
-      new Vue(App);
+      Vue.use(BootstrapVue);
+      let app = new Vue(App);
     },
 );
 

@@ -4,22 +4,21 @@
         <h1>{{image.url}}</h1>
         <img :src="image.url" alt="" class="img-thumbnail" ref="img" width="400">
         <button class="btn btn-primary" @click="$emit('delete-image', image)"> Remove </button>
-        <button class="btn btn-success pull-right" @click="cropImage"> Crop </button>
-        <button class="btn btn-danger pull-right" @click="getCropData"> Finish Crop </button>
-        <crop-modal></crop-modal>
+        <b-btn v-b-modal="`modal${image.id}`">{{image.id}}Show Modal</b-btn>
+        <crop-modal :image="image" @finish-crop="finishCrop"></crop-modal>
     </div>
 
 </template>
 
 <script>
-  import Cropper from 'cropperjs';
   import CropModal from './CropModal.vue';
 
   export default {
     name: 'ImageContainer',
     components: {
-      CropModal
+      CropModal,
     },
+    computed: {},
     props: {
       image: Object
     },
@@ -29,14 +28,18 @@
       };
     },
     methods: {
-      cropImage() {
-        this.cropper = new Cropper(this.$refs.img);
-      },
-      getCropData() {
-        console.log(this.cropper.getData().height + "crop data");
-        this.$emit('finish-crop', this.image, this.cropData = this.cropper.getData());
-        this.cropper.destroy();
+      finishCrop(image, cropData) {
+        this.$emit('finish-crop', image, cropData);
       }
+//      cropImage() {
+//        this.cropper = new Cropper(this.$refs.img);
+//        this.cropper({background: false})
+//      },
+////      getCropData() {
+////        console.log(this.cropper.getData().height + "crop data");
+////        this.$emit('finish-crop', this.image, this.cropData = this.cropper.getData());
+////        this.cropper.destroy();
+//      },
     }
   }
 </script>
