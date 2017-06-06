@@ -14,16 +14,19 @@
 </template>
 
 <script>
-  import ImageContainer from './components/ImageContainer.erb.vue';
+  import ImageContainer from './components/ImageContainer.vue';
   import {load, upload, update, remove} from './upload';
 
-  const node = document.getElementById('hello-vue');
+  //  const node = document.getElementById('hello-vue');
   //  const data = JSON.parse(node.getAttribute('data'));
 
   const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
   export default {
     el: 'filepicker',
+    components: {
+      ImageContainer
+    },
     props: {
       pass: String,
     },
@@ -34,9 +37,6 @@
       currentStatus: null,
       files: [],
       formData: new FormData(),
-    },
-    components: {
-      ImageContainer
     },
     methods: {
       save() {
@@ -73,19 +73,23 @@
         this.uploadedFiles.images.splice(index, 1)
       },
       finishCrop(image, cropData) {
-        update(image, cropData).then(imageData => {
-          imageData = JSON.parse(imageData);
+        update(image, cropData).then(x => {
+          console.dir('before parse: ' + x);
+          console.log(x.url);
+          var imageData = JSON.parse(x);
+          console.dir('after parse: ' + imageData);
+          console.log('files; ' + this.uploadedFiles);
           console.log("UPDATE SUCCESSFUL");
-          console.log(imageData);
           this.currentStatus = STATUS_SUCCESS;
-          console.log(this.currentStatus);
-          let index = this.uploadedFiles.images.indexOf(imageData);
-          this.uploadedFiles.images.splice(index, 1, imageData);
+          let index = this.uploadedFiles.images.indexOf(image);
+          this.uploadedFiles.images.splice(index, 1, imageData)
+//          this.uploadedFiles.images.$set(index, imageData)
+//          Vue.set(this.uploadedFiles.images, index, imageData);
         }).catch(err => {
           this.uploadError = err.response;
           console.log(this.uploadError);
           this.currentStatus = STATUS_FAILED;
-          console.log(this.currentStatus);
+          console.log('Current Status: ' + this.currentStatus);
         });
 
       }
