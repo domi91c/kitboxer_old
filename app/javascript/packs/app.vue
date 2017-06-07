@@ -1,22 +1,23 @@
 <template>
     <div id='filepicker'>
-
-        <h1>{{uploadError}}</h1>
-
+        <h1>File Picker 10,000</h1>
         <input type="file" multiple :name="uploadFieldName"
                @change="filesChange($event)"
                accept="image/*" ref="fileField">
 
         <button @click="save">Upload Files</button>
 
-        <ul v-for="image in uploadedFiles.images">
-            <image-container :image="image" @delete-image="deleteImage" @finish-crop="finishCrop"></image-container>
+        <ul v-for="image in uploadedFiles">
+            <image-container :image="image" :imageId="image.id" @delete-image="deleteImage"
+                             @finish-crop="finishCrop" @get-crop-image="getCropImage"></image-container>
         </ul>
+        <crop-modal v-if="cropImage" :image="cropImage" @finish-crop="finishCrop"></crop-modal>
     </div>
 </template>
 
 <script>
   import ImageContainer from './components/ImageContainer.vue';
+  import CropModal from './components/CropModal.vue';
   import {load, upload, update, remove} from './upload';
 
   //  const node = document.getElementById('hello-vue');
@@ -28,17 +29,21 @@
     el: 'filepicker',
     components: {
       ImageContainer,
+      CropModal
     },
     props: {
       pass: String,
     },
-    data: {
-      uploadFieldName: 'images[]',
-      uploadedFiles: [],
-      uploadError: null,
-      currentStatus: null,
-      files: [],
-      formData: new FormData(),
+    data() {
+      return {
+        uploadFieldName: 'images[]',
+        uploadedFiles: [],
+        uploadError: null,
+        currentStatus: null,
+        files: [],
+        formData: new FormData(),
+        cropImage: null
+      }
     },
     methods: {
       test() {
@@ -50,8 +55,12 @@
         }
         upload(this.formData).then(x => {
           x = JSON.parse(x);
-          console.log('')
-          this.uploadedFiles = x;
+          console.log('uploading new files:');
+          console.dir(x.images);
+          console.dir(this.uploadedFiles);
+          this.uploadedFiles.push(...x.images);
+          console.log('uploade new files:');
+          console.dir(this.uploadedFiles);
           this.currentStatus = STATUS_SUCCESS;
         }).catch(err => {
           this.uploadError = err.response;
@@ -74,29 +83,32 @@
         }
       },
       deleteImage(image) {
-        let index = this.uploadedFiles.images.indexOf(image);
+        let index = this.uploadedFiles.indexOf(image);
         remove(image.id);
-        this.uploadedFiles.images.splice(index, 1)
+        this.uploadedFiles.splice(index, 1);
       },
       finishCrop(image, cropData) {
         update(image, cropData).then(x => {
-          console.log(x.url);
           var imageData = JSON.parse(x);
           this.currentStatus = STATUS_SUCCESS;
-          let index = this.uploadedFiles.images.indexOf(image);
-          this.uploadedFiles.images.splice(index, 1, imageData)
+          let index = this.uploadedFiles.indexOf(image);
+          this.uploadedFiles.splice(index, 1, imageData);
         }).catch(err => {
           this.uploadError = err.response;
           console.log(this.uploadError);
           this.currentStatus = STATUS_FAILED;
         });
 
+      },
+      getCropImage(image) {
+        console.log("setting crop image to " + image.id);
+        this.cropImage = image;
       }
     },
     created() {
       load().then(x => {
         x = JSON.parse(x);
-        this.uploadedFiles = x;
+        this.uploadedFiles = x.images;
         this.currentStatus = STATUS_SUCCESS;
       }).catch(err => {
         this.uploadError = err.response;

@@ -1,5 +1,6 @@
 <template>
-    <b-modal :id="`modal${image.id}`" ref="cropModal" class="text-center">
+    <b-modal id="cropModal" ref="cropModal" class="text-center">
+        <div slot="modal-header">Modal {{image.id}}</div>
         <img :src="image.url" alt="" class="img-thumbnail cropImg text-center" ref="cropImg">
         <div slot="modal-footer">
             <b-btn variant="secondary" @click="cancelCrop">Cancel</b-btn>
@@ -29,7 +30,7 @@
     mounted() {
       this.cropper = new Cropper(this.$refs.cropImg, {
         viewMode: 3,
-        aspectRatio: 16/9,
+        aspectRatio: 16 / 9,
         minContainerWidth: 400,
         minContainerHeight: 400,
         preview: this.$refs.preview,
@@ -38,14 +39,13 @@
     },
     updated() {
       this.cropper.destroy();
-      console.log('updating');
       this.cropper = new Cropper(this.$refs.cropImg, {
-      viewMode: 3,
-      aspectRatio: 16/9,
-      minContainerWidth: 600,
-      minContainerHeight: 600,
-      preview: this.$refs.preview,
-    });
+        viewMode: 3,
+        aspectRatio: 16 / 9,
+        minContainerWidth: 600,
+        minContainerHeight: 600,
+        preview: this.$refs.preview,
+      });
     }
   }
 </script>
