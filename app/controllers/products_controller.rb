@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @images = @product.images
+    render json: { images: @images}, status: :created, location: @product
   end
 
   # GET /products/new
