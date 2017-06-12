@@ -1,7 +1,63 @@
-<% content_for :title do %>About<% end %>
-<h3>About the Website</h3>
-<p>
-This web application was created with
-<%= link_to('Rails Composer', 'http://railsapps.github.io/rails-composer/') %>
-from the <%= link_to('RailsApps project', 'http://railsapps.github.io/') %>.
-</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="item-image">
+        <img src="http://placehold.it/800x400" class="img-responsive">
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="item-image">
+        <%= image_tag "samples/tall_image1.jpg", class: 'img-responsive' %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="item-image">
+        <%= image_tag "samples/large_image1.png", class: 'img-responsive' %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="item-image">
+        <%= image_tag "samples/wide_image1.png", class: 'img-responsive' %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="item-image">
+        <%= image_tag "samples/52083_1_miscellaneous_digital_art_vaporwave_image_glitch.jpg", class: 'img-responsive' %>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="item-image">
+        <img src="http://placehold.it/850x600" class="img-responsive">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* item styles */
+  .item-image {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 70%;
+  }
+
+  .item-image img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+</style>

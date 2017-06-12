@@ -1,4 +1,5 @@
 class Image < ApplicationRecord
+  belongs_to :product
   mount_uploader :image, ImageUploader
   attr_accessor :x, :y, :width, :height
   # after_update :crop_image

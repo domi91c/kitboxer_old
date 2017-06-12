@@ -13,7 +13,6 @@
 //= require pages-plugins/imagesloaded/imagesloaded.pkgd.min
 //= require pages-plugins/jquery-actual/jquery.actual.min
 //= require pages-plugins/jquery-scrollbar/jquery.scrollbar.min
-//= require pages-plugins/fileuploader/jquery.fileuploader.min
 //
 
 //
@@ -24,6 +23,5 @@
 //= require turbolinks
 
 $(document).ready(function() {
-}) ;
-
+});
 

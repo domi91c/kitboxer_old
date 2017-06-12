@@ -5,9 +5,13 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue';
-import App from './app.vue';
+import App from './filepicker/app.vue';
 import BootstrapVue from 'bootstrap-vue';
+
 document.addEventListener('DOMContentLoaded', () => {
+      let element = document.getElementById('new-product-images');
+      let product = element.dataset.product;
+
       Vue.use(BootstrapVue);
       let app = new Vue(App);
     },

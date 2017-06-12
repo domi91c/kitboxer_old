@@ -1,5 +1,116 @@
-<h1>New Product</h1>
+<%= stylesheet_pack_tag 'hello_vue' %>
+<%= javascript_pack_tag 'hello_vue' %>
+<div class="col-lg-12">
+  <div class="panel panel-transparent">
+    <ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white" id="tab-3">
+      <li class="active">
+        <a data-toggle="tab" href="#description">Description</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#images">Images</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#shipping">Shipping</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#confirm">Preview</a>
+      </li>
+    </ul>
+    <div class="tab-content bg-white">
+      <div class="tab-pane" id="description">
+        <%= form_with(model: @product, local: true) do |form| %>
+            <% if @product.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-<%= render 'form', product: @product %>
+                  <ul>
+                    <% @product.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+            <div class="col-md-12">
+              <p class="popover-title"><strong>Product Description</strong></p>
 
-<%= link_to 'Back', products_path %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="panel-title">
+                    New Product
+                  </div>
+                  <hr>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= form.label :name %>
+                    <%= form.text_field :name, id: :product_name, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :description %>
+                    <%= form.text_area :description, id: :product_description, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.submit "Create Product", class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        <% end %>
+
+        <%= form_with(model: @product, local: true) do |form| %>
+            <% if @product.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+                  <ul>
+                    <% @product.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+            <div class="col-md-6">
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="panel-title">
+                    New Product
+                  </div>
+                  <hr>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <%= form.label :name %>
+                    <%= form.text_field :name, id: :product_name, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :description %>
+                    <%= form.text_area :description, id: :product_description, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.submit "Create Product", class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        <% end %>
+
+
+      </div>
+      <div class="tab-pane active" id="images">
+        <filepicker id="hello-vue"></filepicker>
+      </div>
+      <div class="tab-pane" id="shipping">
+
+      </div>
+      <div class="tab-pane" id="confirm">
+      </div>
+    </div>
+  </div>
+</div>

@@ -67,8 +67,9 @@ class ImagesController < ApplicationController
 
   def upload
     @images = []
+    @product ||= Product.find(params[:product])
     params[:images].each do |image|
-      @images << Image.create(image: image).image_data
+      @images << Image.create(image: image, product: @product).image_data
     end
     render json: { images: @images }, status: :created, location: @images.last
   end
