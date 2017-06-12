@@ -83,4 +83,24 @@ pickle-email-*.html
 # tilde files are usually backup files from a text editor
 *~
 /public/packs
+/public/uploads
 /node_modules
+log/
+tmp/
+vendor/assets/
+vendor/pages/pages-plugins/angular-bootstrap-nav-tree/
+vendor/pages/pages-plugins/angular-dropzone/
+vendor/pages/pages-plugins/angular-google-map-loader/
+vendor/pages/pages-plugins/angular-nestable/
+vendor/pages/pages-plugins/angular-nvd3/
+vendor/pages/pages-plugins/angular-oc-lazyload/
+vendor/pages/pages-plugins/angular-rickshaw/
+vendor/pages/pages-plugins/angular-sanitize/
+vendor/pages/pages-plugins/angular-sparkline/
+vendor/pages/pages-plugins/angular-summernote/
+vendor/pages/pages-plugins/angular-ui-router/
+vendor/pages/pages-plugins/angular-ui-select/
+vendor/pages/pages-plugins/angular-ui-util/
+vendor/pages/pages-plugins/angular-wizard/
+vendor/pages/pages-plugins/angular/
+vendor/pages/pages-plugins/ng-switchery/
