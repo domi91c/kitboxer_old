@@ -36,7 +36,7 @@
     props: {
       image: Object,
     },
-    data: function() {
+    data() {
       return {};
     },
     methods: {},
