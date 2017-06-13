@@ -12,10 +12,6 @@ module.exports = merge(sharedConfig, {
   devtool: 'source-map',
   stats: 'normal',
 
-  setup: {
-    baseUrl: 'https://kitboxer.herokuapp.com'
-  },
-
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
