@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 
-// const BASE_URL = 'http://localhost:3001';
-const BASE_URL = 'https://kitboxer.herokuapp.com';
+const BASE_URL = 'http://localhost:3001';
+// const BASE_URL = 'https://kitboxer.herokuapp.com';
 
 function update(image, cropData) {
   const url = `${BASE_URL}/images/${image.id}`;

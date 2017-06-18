@@ -1,11 +1,14 @@
 <%= stylesheet_pack_tag 'image-viewer' %>
 <%= javascript_pack_tag 'image-viewer' %>
-<%= content_tag :div,
-                nil,
-                id: "image-viewer",
-                data: { product: 42}
-%>
+<div class="col-md-12">
 
+  <%= content_tag :div,
+                  nil,
+                  id: "image-viewer",
+                  data: { product: 42 }
+  %>
+  <div class="product-description-footer"></div>
+</div>
 
 
 
@@ -67,85 +70,85 @@
   var _submit = document.getElementById('_submit'),
       _file = document.getElementById('_file'),
       _progress = document.getElementById('_progress'),
-      _preview = document.getElementById('_preview');
+      _preview = document.getElementById('_preview')
 
   var renderImage = function(image) {
-    var imageContainer = document.createElement('div');
-    imageContainer.setAttribute('id', 'image' + image.id);
-    var imageEl = document.createElement('img');
-    var removeButton = document.createElement('button');
-    removeButton.textContent = 'REMOVE';
-    removeButton.setAttribute('id', 'remove' + image.id);
-    imageContainer.appendChild(imageEl);
-    imageContainer.appendChild(removeButton);
-    imageEl.setAttribute('class', 'img-thumbnail');
-    imageEl.setAttribute('src', image.url);
-    var previewContainer = document.querySelector('#preview-container');
-    previewContainer.appendChild(imageContainer);
+    var imageContainer = document.createElement('div')
+    imageContainer.setAttribute('id', 'image' + image.id)
+    var imageEl = document.createElement('img')
+    var removeButton = document.createElement('button')
+    removeButton.textContent = 'REMOVE'
+    removeButton.setAttribute('id', 'remove' + image.id)
+    imageContainer.appendChild(imageEl)
+    imageContainer.appendChild(removeButton)
+    imageEl.setAttribute('class', 'img-thumbnail')
+    imageEl.setAttribute('src', image.url)
+    var previewContainer = document.querySelector('#preview-container')
+    previewContainer.appendChild(imageContainer)
 
     removeButton.addEventListener('click', () => {
-          remove(image);
+          remove(image)
         },
-    );
-  };
+    )
+  }
 
   var upload = function() {
     if (_file.files.length === 0) {
-      return;
+      return
     }
-    var data = new FormData();
+    var data = new FormData()
     for (var i = 0; i < _file.files.length; i++) {
-      data.append('images[]', _file.files[i]);
+      data.append('images[]', _file.files[i])
     }
-    var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest()
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
         try {
-          var resp = JSON.parse(request.response);
-          _file.value = '';
+          var resp = JSON.parse(request.response)
+          _file.value = ''
         } catch (e) {
           var resp = {
             status: 'error',
             data: 'Unknown error occurred: [' + request.responseText + ']',
-          };
+          }
         }
-        var imageData = imageData.images;
+        var imageData = imageData.images
         for (var i = 0; i < imageData.length; i++) {
-          var image = imageData[i];
-          renderImage(image);
+          var image = imageData[i]
+          renderImage(image)
         }
       }
-    };
+    }
 
     request.upload.addEventListener('progress', function(e) {
-      _progress.style.width = Math.ceil(e.loaded / e.total) * 100 + '%';
-    }, false);
+      _progress.style.width = Math.ceil(e.loaded / e.total) * 100 + '%'
+    }, false)
 
-    request.open('POST', '<%= upload_images_url %>');
-    request.send(data);
-  };
+    request.open('POST', '<%= upload_images_url %>')
+    request.send(data)
+  }
 
   function remove(image) {
-    var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest()
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
         try {
-          var resp = JSON.parse(request.response);
+          var resp = JSON.parse(request.response)
         } catch (e) {
           var resp = {
             status: 'error',
             data: 'Unknown error occurred: [' + request.responseText + ']',
-          };
+          }
         }
 
-        var imageContainer = document.querySelector('#image' + image.id);
-        imageContainer.remove();
+        var imageContainer = document.querySelector('#image' + image.id)
+        imageContainer.remove()
       }
-    };
-    request.open('DELETE', image.delete_url);
-    request.send(image.id);
+    }
+    request.open('DELETE', image.delete_url)
+    request.send(image.id)
   }
 
-//  _submit.addEventListener('click', upload);
+  //  _submit.addEventListener('click', upload);
 
 </script>
